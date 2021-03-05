@@ -56,7 +56,7 @@ exports.default = (function (config) {
             path: '/' + (name === 'index' ? '' : name),
             // needDelectName: name === 'index',
             needDelectName: false,
-            component: function () { return Promise.resolve().then(function () { return require("@/" + rootFile + r.routerComponent); }); }
+            component: () => import(`@/${rootFile}${r.routerComponent}`)
         };
         maxLen = r.fileLen;
         // allRouters的key：以 'len'加当前的文件深度 作为key
